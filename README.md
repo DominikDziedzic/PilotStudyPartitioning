@@ -1,5 +1,5 @@
 # Pilot Study on Partitioning
-Repository for storing materials and data from the pilot study on partitioning to accompany "Sources of Philosophical Intuitions: Towards a Model of Intuition Generation" project.
+Repository for storing materials and data from the pilot study on partitioning to accompany ["Sources of Philosophical Intuitions: Towards a Model of Intuition Generation"](https://github.com/DominikDziedzic/IntuitionGenerationProject) project.
 
 ## Required packages
 Run the following code in R to install the required packages:
