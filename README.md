@@ -57,7 +57,6 @@ Coding:
 - **$ training/final:**
   - "0" = The picture of Rudolf Carnap
   - "1" = The picture of Elvis Presley
-The primed condition is coded as "p", unprimed as "u", and control as "c". "0" stands for "The picture of Rudolf Carnap", "1" for "The picture of Elvis Presley" (the final variable).
 
 ## References
 
