@@ -43,4 +43,8 @@ str(data)
 # $ training : Factor w/ 2 levels "0","1": 2 2 1 1 1 2 1 1 1 2 ...
 # $ final    : int  0 0 0 0 0 1 0 0 0 0 ...
 ```
-The dataset consists of two IVs (i.e., "condition" and "training") and a DV ("final"). The final sample is 45.  
+The dataset consists of two IVs (i.e., "condition" and "training") and a DV ("final"). The final sample is 45. 
+
+## References
+
+Kaplan, D. (1978). Dthat. In P. Cole (Ed.), _Syntax and Semantics: Pragmatics_ (pp. 221–243). New York: Academic Press.
