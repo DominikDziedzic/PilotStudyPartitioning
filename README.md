@@ -49,7 +49,7 @@ The dataset consists of two IVs (i.e., "condition" and "training") and a DV ("fi
 - In **the unprimed condition**, the questionnaire first displays a scenario, but instead of displaying a question, the training phase follows immediately after. Participants in this condition are randomly assigned to one of the possible answers to the scenario and are trained on the subsequent reasons _for_ that answer. The training phase is followed by the transfer phase (defined as above). The unprimed condition concludes with the final answer to the scenario.
 - In **the control condition**, the questionnaire first displays a scenario, and then the training phase begins. There is no transfer phase in this condition. The training phase is followed by the final answer to the scenario.
 
-The primed condition is coded as "p", unprimed as "u", and control as "c". "0" stands for "The picture of Rudolf Carnap", "1" for "The picture of Elvis Presley" in the final variable (or "The portrait of Marquis de Lafayette" / "The photoshopped picture of you" in data$training).
+The primed condition is coded as "p", unprimed as "u", and control as "c". "0" stands for "The picture of Rudolf Carnap", "1" for "The picture of Elvis Presley" (the final variable).
 
 ## References
 
