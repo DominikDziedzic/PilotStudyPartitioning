@@ -47,4 +47,4 @@ The dataset consists of two IVs (i.e., "condition" and "training") and a DV ("fi
 
 ## References
 
-Kaplan, D. (1978). Dthat. In P. Cole (Ed.), _Syntax and Semantics: Pragmatics_ (pp. 221–243). New York: Academic Press.
+- Kaplan, D. (1978). Dthat. In P. Cole (Ed.), _Syntax and Semantics: Pragmatics_ (pp. 221–243). New York: Academic Press.
