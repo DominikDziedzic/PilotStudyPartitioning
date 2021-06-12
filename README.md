@@ -16,7 +16,11 @@ Content of the repository (after opening each file, right-click and select Save 
 
 # Analysis
 
-The results of statistical analyses are presented below: i) analysis of variance, ii) frequentist linear regression, and iii) Bayesian linear regression.  
+The results of statistical analyses are presented below: 
+- [Analysis of Variance](https://github.com/DominikDziedzic/PilotStudyPartitioning##AnalysisofVariance)
+- Frequentist linear regression
+- Bayesian linear regression
+- [References](https://github.com/DominikDziedzic/PilotStudyPartitioning#References)
 
 ## Analysis of Variance
 
@@ -26,7 +30,7 @@ Run the following code in R to install the required packages:
 ``` r
 install.packages("") TODO
 ```
-## Import data
+### Import data
 Download raw data files in [.txt](https://raw.githubusercontent.com/DominikDziedzic/PilotStudyPartitioning/main/data.txt) or [.csv format](https://raw.githubusercontent.com/DominikDziedzic/PilotStudyPartitioning/main/data.csv) and run the following in R to import data:
 
 ``` r
@@ -62,6 +66,6 @@ Coding:
   - "0" = The picture of Rudolf Carnap
   - "1" = The picture of Elvis Presley
 
-## References
+# References
 
 - Kaplan, D. (1978). Dthat. In P. Cole (Ed.), _Syntax and Semantics: Pragmatics_ (pp. 221–243). New York: Academic Press.
