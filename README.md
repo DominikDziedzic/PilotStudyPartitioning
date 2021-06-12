@@ -16,7 +16,11 @@ Content of the repository (after opening each file, right-click and select Save 
 
 # Analysis
 
-## Required packages
+The results of statistical analyses are presented below: i) analysis of variance, ii) frequentist linear regression, and iii) Bayesian linear regression.  
+
+## Analysis of Variance
+
+### Required packages
 Run the following code in R to install the required packages:
 
 ``` r
@@ -31,7 +35,7 @@ data <- read.delim(file.choose())
 # b) if in .csv:
 data <- read.csv(file.choose(), sep = ";")
 
-attach(data) # attach your data, so that objects in the database can be accessed by simply giving their names
+attach(data) # attach your data, so that objects in the database can be accessed by giving their names
 data$condition <- as.factor(data$condition) #format the dataset
 data$training <- as.factor(data$training)
 ```
