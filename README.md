@@ -6,13 +6,13 @@ This study examines the interplay between pre-experimentally and experimentally 
 **The online survey tool used in this study can be accessed here: [On the Use of English Demonstrative "That" (Partitioning)](http://kognilab.pl/ls3/index.php/776326?newtest=Y&lang=en).**
 
 Content of the repository (after opening each file, right-click and select Save as):
-- Raw data 
+- **Raw data** 
   - [in .txt](https://raw.githubusercontent.com/DominikDziedzic/PilotStudyPartitioning/main/data.txt) 
   - [in .csv](https://raw.githubusercontent.com/DominikDziedzic/PilotStudyPartitioning/main/data.csv)
-- Experimental materials
+- **Experimental materials**
   -  [in .docx]()
   -  [in .pdf]() 
-- [Source code in .R]()
+- [**Source code in .R**]()
 
 
 ## Required packages
