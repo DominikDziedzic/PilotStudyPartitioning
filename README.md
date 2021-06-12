@@ -14,6 +14,7 @@ Content of the repository (after opening each file, right-click and select Save 
   -  [in .pdf]() 
 - [**Source code in .R**]()
 
+# Analysis
 
 ## Required packages
 Run the following code in R to install the required packages:
