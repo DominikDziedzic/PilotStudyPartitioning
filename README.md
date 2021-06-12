@@ -17,10 +17,10 @@ Content of the repository (after opening each file, right-click and select Save 
 # Analysis
 
 The results of statistical analyses are presented below: 
-- [Analysis of Variance](https://github.com/DominikDziedzic/PilotStudyPartitioning##analysis-of-variance)
+- [Analysis of Variance](https://github.com/DominikDziedzic/PilotStudyPartitioning#analysis-of-variance)
 - Frequentist linear regression
 - Bayesian linear regression
-- [References](https://github.com/DominikDziedzic/PilotStudyPartitioning#References)
+- [References](https://github.com/DominikDziedzic/PilotStudyPartitioning#references)
 
 ## Analysis of Variance
 
