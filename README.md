@@ -66,6 +66,26 @@ Coding:
   - "0" = The picture of Rudolf Carnap
   - "1" = The picture of Elvis Presley
 
+### Calculate the means of the responses
+
+``` r
+library("dplyr")
+group_by(data, condition, training) %>%
+  summarise(
+    count = n(),
+    mean = mean(final, na.rm = TRUE),
+    sd = sd(final, na.rm = TRUE)
+  )
+#  condition training count   mean    sd
+#  <fct>     <fct>    <int>  <dbl> <dbl>
+#1 c         0           11 0.0909 0.302
+#2 c         1            4 1      0    
+#3 p         0           10 0.2    0.422
+#4 p         1            7 0.143  0.378
+#5 u         0            5 0.2    0.447
+#6 u         1            8 0.875  0.354
+```
+
 ## Frequentist Linear Regression
 
 ## Bayesian Linear Regression
