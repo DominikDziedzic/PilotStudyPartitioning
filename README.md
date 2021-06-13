@@ -141,8 +141,6 @@ model1
 # 3 condition:training   2  39  7.089 2.00e-03     * 0.267
 ```
 The main effect of condition is significant according to the anova_test() method. Since all tests returned significant two-way interaction let's investigate the simple main effect of condition.
-
-Compute simple main effects
 ``` r
 model <- lm(final ~ condition * training, data = data)
 data %>%
