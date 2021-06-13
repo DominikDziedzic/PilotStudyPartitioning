@@ -118,7 +118,7 @@ summary(model0)
 The main effects of condition, training stimulus, as well as the condition × stimulus type interaction, are significant.
 
 ``` r
-effectsize::eta_squared(model0) # partial eta's squared from aov()
+effectsize::eta_squared(model0) # partial eta squared values from aov()
 # Parameter          | Eta2 (partial) |       90% CI
 # --------------------------------------------------
 # condition          |           0.22 | [0.04, 0.39]
