@@ -20,7 +20,7 @@ The results of statistical analyses are presented below:
 - [**Analysis of Variance**](https://github.com/DominikDziedzic/PilotStudyPartitioning#analysis-of-variance)
 - [**Frequentist Linear Regression**](https://github.com/DominikDziedzic/PilotStudyPartitioning#frequentist-linear-regression)
 - [**Bayesian Linear Regression**](https://github.com/DominikDziedzic/PilotStudyPartitioning#bayesian-linear-regression)
-- [References](https://github.com/DominikDziedzic/PilotStudyPartitioning#references)
+- [**References**](https://github.com/DominikDziedzic/PilotStudyPartitioning#references)
 
 ## Analysis of Variance
 
