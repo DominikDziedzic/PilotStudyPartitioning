@@ -210,13 +210,16 @@ posthoc
 # P value adjustment: tukey method for comparing a family of 6 estimates 
 ```
 
-
-
 ## Frequentist Linear Regression
 
 ## Bayesian Linear Regression
 
 # References
-- Cohen J. (1988). Statistical Power Analysis for the Behavioral Sciences (2nd Ed.). Hillsdale, NJ: Laurence Erlbaum Associates.
+- Ben-Shachar, M., Lüdecke, D., Makowski, D. (2020). effectsize: Estimation of Effect Size Indices and Standardized Parameters. Journal of Open Source Software, 5(56), 2815. doi:10.21105/joss.02815
+- Cohen, J. (1988). Statistical Power Analysis for the Behavioral Sciences (2nd Ed.). Hillsdale, NJ: Laurence Erlbaum Associates.
 - Kaplan, D. (1978). Dthat. In P. Cole (Ed.), _Syntax and Semantics: Pragmatics_ (pp. 221–243). New York: Academic Press.
+- Kassambara, A. (2021). rstatix: Pipe-Friendly Framework for Basic Statistical Tests. R package version 0.7.0. Retrieved from: https://CRAN.R-project.org/package=rstatix
+- Lenth, R. V. (2021). emmeans: Estimated Marginal Means, aka Least-Squares Means. R package version 1.6.1. Retrieved from: https://CRAN.R-project.org/package=emmeans
+- R Core Team (2021). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. Retrieved from: https://www.R-project.org/
 - Type-III Sums of Squares. (2008). Retrieved from: http://myowelt.blogspot.com/2008/05/obtaining-same-anova-results-in-r-as-in.html
+- Wickham, H., François, R., Henry, L., and Müller, K. (2021). dplyr: A Grammar of Data Manipulation. R package version 1.0.6. Retrieved from: https://CRAN.R-project.org/package=dplyr
