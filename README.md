@@ -76,14 +76,14 @@ group_by(data, condition, training) %>%
     mean = mean(final, na.rm = TRUE),
     sd = sd(final, na.rm = TRUE)
   )
-#  condition training count   mean    sd
-#  <fct>     <fct>    <int>  <dbl> <dbl>
-#1 c         0           11 0.0909 0.302
-#2 c         1            4 1      0    
-#3 p         0           10 0.2    0.422
-#4 p         1            7 0.143  0.378
-#5 u         0            5 0.2    0.447
-#6 u         1            8 0.875  0.354
+#   condition training count   mean    sd
+#   <fct>     <fct>    <int>  <dbl> <dbl>
+# 1 c         0           11 0.0909 0.302
+# 2 c         1            4 1      0    
+# 3 p         0           10 0.2    0.422
+# 4 p         1            7 0.143  0.378
+# 5 u         0            5 0.2    0.447
+# 6 u         1            8 0.875  0.354
 ```
 ### Two-Way 3 (condition) × 2 (training stimulus) ANOVA
 
@@ -98,36 +98,36 @@ Method 1: basic R function aov()
 ``` r
 model0 <- aov(final ~ condition * training, data = data)
 summary(model0)
-#                   Df Sum Sq Mean Sq F value   Pr(>F)    
-#condition           2  1.430  0.7151   5.532 0.007671 ** 
-#training            1  2.007  2.0068  15.525 0.000327 ***
-#condition:training  2  1.833  0.9164   7.089 0.002365 ** 
-#Residuals          39  5.041  0.1293                     
-#---
-#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#                    Df Sum Sq Mean Sq F value   Pr(>F)    
+# condition           2  1.430  0.7151   5.532 0.007671 ** 
+# training            1  2.007  2.0068  15.525 0.000327 ***
+# condition:training  2  1.833  0.9164   7.089 0.002365 ** 
+# Residuals          39  5.041  0.1293                     
+# ---
+# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
 The main effects of condition, training stimulus, as well as the condition × stimulus type interaction, are significant.
 
 ``` r
 effectsize::eta_squared(model0) # partial eta's squared from aov()
-#Parameter          | Eta2 (partial) |       90% CI
-#--------------------------------------------------
-#condition          |           0.22 | [0.04, 0.39]
-#training           |           0.28 | [0.10, 0.46]
-#condition:training |           0.27 | [0.07, 0.43]
+# Parameter          | Eta2 (partial) |       90% CI
+# --------------------------------------------------
+# condition          |           0.22 | [0.04, 0.39]
+# training           |           0.28 | [0.10, 0.46]
+# condition:training |           0.27 | [0.07, 0.43]
 ```
 However, since the design is unbalanced let's adjust the calculations to produce Type-III sums of squares ("Type-III Sums of Squares", 2008):
 ``` r
 options(contrasts = c("contr.sum", "contr.poly"))
 model0 <- aov(final ~ condition * training, data = data)
 drop1(model0,~.,test="F")
-#                   Df Sum of Sq    RSS     AIC F value    Pr(>F)    
-#<none>                          5.0412 -86.506                      
-#condition           2    1.3381 6.3794 -79.912  5.1760  0.010146 *  
-#training            1    2.5656 7.6069 -69.992 19.8483 6.866e-05 ***
-#condition:training  2    1.8328 6.8740 -76.551  7.0895  0.002365 ** 
-#---
-#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#                    Df Sum of Sq    RSS     AIC F value    Pr(>F)    
+# <none>                          5.0412 -86.506                      
+# condition           2    1.3381 6.3794 -79.912  5.1760  0.010146 *  
+# training            1    2.5656 7.6069 -69.992 19.8483 6.866e-05 ***
+# condition:training  2    1.8328 6.8740 -76.551  7.0895  0.002365 ** 
+# ---
+# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
 The main effect of condition is still significant, though less so (p < 0.05). Let's compare these results with the results obtained by another method.
 
@@ -135,10 +135,10 @@ Method 2: function anova_test() in "rstatix" package
 ``` r
 model1 <- anova_test(data, final ~ condition * training, type = 3, effect.size = "ges")
 model1
-#              Effect DFn DFd      F        p p<.05   ges
-#1          condition   2  39  5.176 1.00e-02     * 0.210
-#2           training   1  39 19.848 6.87e-05     * 0.337
-#3 condition:training   2  39  7.089 2.00e-03     * 0.267
+#               Effect DFn DFd      F        p p<.05   ges
+# 1          condition   2  39  5.176 1.00e-02     * 0.210
+# 2           training   1  39 19.848 6.87e-05     * 0.337
+# 3 condition:training   2  39  7.089 2.00e-03     * 0.267
 ```
 The main effect of condition is significant according to the anova_test() method. Since all tests returned significant two-way interaction let's investigate the simple main effect of condition.
 
