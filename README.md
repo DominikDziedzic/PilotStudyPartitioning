@@ -140,18 +140,75 @@ model1
 # 2           training   1  39 19.848 6.87e-05     * 0.337
 # 3 condition:training   2  39  7.089 2.00e-03     * 0.267
 ```
-The main effect of condition is significant according to the anova_test() method. Since all tests returned significant two-way interaction let's investigate the simple main effect of condition.
+The main effect of condition is significant according to the anova_test() method. Moreover, according to Cohen's standard thresholds (Cohen, 1988), the effect is medium for condition (generalized eta squared = 0.21) and large for training (generalized eta squared = 0.38). Since all tests returned significant two-way interaction let's investigate the simple main effect of condition.
+
+Run one-way model of condition at each level of training:
 ``` r
 model <- lm(final ~ condition * training, data = data)
 data %>%
   group_by(training) %>%
   anova_test(final ~ condition, error = model)
+#   training Effect      DFn   DFd      F       p `p<.05`   ges
+# * <fct>    <chr>     <dbl> <dbl>  <dbl>   <dbl> <chr>   <dbl>
+# 1 0        condition     2    39  0.292 0.748   ""      0.015
+# 2 1        condition     2    39 10.4   0.00024 "*"     0.348
 ```
-In
+The simple main effect of condition is significant for training group 1 (p < 0.001). Let's now perform multiple pairwise comparisons between the conditions groups by training.
 
+Compare the score of the different condition levels by training levels:
+``` r
+pwc <- data %>% 
+  group_by(training) %>%
+  emmeans_test(final ~ condition, p.adjust.method = "bonferroni") 
+pwc
+#   training term      .y.   group1 group2    df statistic        p    p.adj p.adj.signif
+# * <chr>    <chr>     <chr> <chr>  <chr>  <dbl>     <dbl>    <dbl>    <dbl> <chr>       
+# 1 0        condition final c      p         39 -6.94e- 1 0.492    1        ns          
+# 2 0        condition final c      u         39 -5.63e- 1 0.577    1        ns          
+# 3 0        condition final p      u         39 -2.82e-15 1.00     1        ns          
+# 4 1        condition final c      p         39  3.80e+ 0 0.000490 0.00147  **          
+# 5 1        condition final c      u         39  5.68e- 1 0.573    1        ns          
+# 6 1        condition final p      u         39 -3.93e+ 0 0.000333 0.000998 *** 
+```
+There're significant differences of response scores between the control and primed conditions grouped by training level 1 (adjusted p < 0.01), as well as between the primed and unprimed conditions grouped by training level 1 (adjusted p < 0.001).
 
+For an even finer-grained comarison, run the following:
+``` r
+posthoc <- lsmeans(model0, # applies to model0
+                   pairwise ~ condition * training, 
+                   adjust="tukey")
+posthoc
+# $lsmeans
+#  condition training lsmean    SE df lower.CL upper.CL
+#  c         0        0.0909 0.108 39   -0.128    0.310
+#  p         0        0.2000 0.114 39   -0.030    0.430
+#  u         0        0.2000 0.161 39   -0.125    0.525
+#  c         1        1.0000 0.180 39    0.636    1.364
+#  p         1        0.1429 0.136 39   -0.132    0.418
+#  u         1        0.8750 0.127 39    0.618    1.132
 
+# Confidence level used: 0.95 
 
+# $contrasts
+#  contrast  estimate    SE df t.ratio p.value
+#  c 0 - p 0  -0.1091 0.157 39 -0.694  0.9815 
+#  c 0 - u 0  -0.1091 0.194 39 -0.563  0.9929 
+#  c 0 - c 1  -0.9091 0.210 39 -4.331  0.0013 
+#  c 0 - p 1  -0.0519 0.174 39 -0.299  0.9997 
+#  c 0 - u 1  -0.7841 0.167 39 -4.693  0.0004 
+#  p 0 - u 0   0.0000 0.197 39  0.000  1.0000 
+#  p 0 - c 1  -0.8000 0.213 39 -3.761  0.0068 
+#  p 0 - p 1   0.0571 0.177 39  0.323  0.9995 
+#  p 0 - u 1  -0.6750 0.171 39 -3.958  0.0039 
+#  u 0 - c 1  -0.8000 0.241 39 -3.317  0.0225 
+#  u 0 - p 1   0.0571 0.211 39  0.271  0.9998 
+#  u 0 - u 1  -0.6750 0.205 39 -3.293  0.0240 
+#  c 1 - p 1   0.8571 0.225 39  3.804  0.0061 
+#  c 1 - u 1   0.1250 0.220 39  0.568  0.9926 
+#  p 1 - u 1  -0.7321 0.186 39 -3.935  0.0042 
+
+# P value adjustment: tukey method for comparing a family of 6 estimates 
+```
 
 
 
@@ -160,6 +217,6 @@ In
 ## Bayesian Linear Regression
 
 # References
-
+- Cohen J. (1988). Statistical Power Analysis for the Behavioral Sciences (2nd Ed.). Hillsdale, NJ: Laurence Erlbaum Associates.
 - Kaplan, D. (1978). Dthat. In P. Cole (Ed.), _Syntax and Semantics: Pragmatics_ (pp. 221–243). New York: Academic Press.
 - Type-III Sums of Squares. (2008). Retrieved from: http://myowelt.blogspot.com/2008/05/obtaining-same-anova-results-in-r-as-in.html
