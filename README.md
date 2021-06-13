@@ -26,10 +26,19 @@ The results of statistical analyses are presented below:
 
 ### Required packages
 Run the following code in R to install the required packages:
-
 ``` r
-install.packages("") TODO
+install.packages("dplyr")
+install.packages("effectsize")
+install.packages("rstatix")
 ```
+
+Load the required packages:
+``` r
+library(dplyr)
+library(effectsize)
+library(rstatix)
+```
+
 ### Import data
 Download raw data files in [.txt](https://raw.githubusercontent.com/DominikDziedzic/PilotStudyPartitioning/main/data.txt) or [.csv format](https://raw.githubusercontent.com/DominikDziedzic/PilotStudyPartitioning/main/data.csv) and run the following in R to import data:
 
