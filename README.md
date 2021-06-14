@@ -13,7 +13,8 @@ Content of the repository (after opening each file, right-click and select Save 
   -  [in .docx]()
   -  [in .pdf]() 
 - **Source code in .R**
-  - ()
+  - [Two-Way ANOVA](https://raw.githubusercontent.com/DominikDziedzic/PilotStudyPartitioning/main/Analysis%2C%20Two-Way%20ANOVA.R)
+  - Frequentist and Bayesian Linear Regression()
 
 # Analysis
 
