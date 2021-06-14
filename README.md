@@ -61,7 +61,7 @@ str(data)
 # $ training : Factor w/ 2 levels "0","1": 2 2 1 1 1 2 1 1 1 2 ...
 # $ final    : int  0 0 0 0 0 1 0 0 0 0 ...
 ```
-The dataset consists of two IVs (i.e., "condition" and "training") and the DV ("final" answers). The length of the dataset is 45. Assignment to conditions was random, with 15 participants in the control condition, 13 in the unprimed condition, and 17 in the primed. Definitions of the conditions are as follow:
+The dataset consists of two IVs (i.e., `condition` and `training`) and the DV (`final` answers). The length of the dataset is 45. Assignment to conditions was random, with 15 participants in the control condition, 13 in the unprimed condition, and 17 in the primed. Definitions of the conditions are as follow:
 - In **the primed condition**, the participant reads a scenario, and then answers a question: _When David uses the expression “That”, is he talking about: (A) The picture of Rudolf Carnap? (B) The picture of Elvis Presley?_ Next, the training begins. The training is primed in this condition, i.e., the questionnaire tracks the initial answers and displays the reasons _for_ the initial answers. During training, the participant categorizes the provided reasons as the reasons for an answer and receives feedback. The training phase is followed by the transfer phase, in which a random counter-reason is displayed to encourage the reorganization of acquired knowledge. This condition concludes with the final answers to the scenario, again: _When David uses the expression “That”, is he talking about: (A) The picture of Rudolf Carnap? (B) The picture of Elvis Presley?_
 - In **the unprimed condition**, the questionnaire first displays a scenario, but instead of displaying a question, the training phase follows immediately after. Participants in this condition are randomly assigned to one of the possible answers to the scenario and are trained on the subsequent reasons _for_ that answer. The training phase is followed by the transfer phase (defined as above). The unprimed condition concludes with the final answer to the scenario.
 - In **the control condition**, the questionnaire first displays a scenario, and then the training phase begins. There is no transfer phase in this condition: The training phase is followed by the final answer to the scenario.
@@ -94,7 +94,7 @@ group_by(data, condition, training) %>%
 # 5 u         0            5 0.2    0.447
 # 6 u         1            8 0.875  0.354
 ```
-### Two-Way 3 (condition) × 2 (training stimulus) ANOVA
+### Two-Way 3 (`condition`) × 2 (`training stimulus`) ANOVA
 
 ``` r
 table(data$condition, data$training) # unbalanced design
@@ -115,7 +115,7 @@ summary(model0)
 # ---
 # Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
-The main effects of condition, training stimulus, as well as the condition × stimulus type interaction, are significant.
+The main effects of `condition`, `training stimulus`, as well as the `condition` × `stimulus` type interaction, are significant.
 
 ``` r
 effectsize::eta_squared(model0) # partial eta squared values from aov()
@@ -138,7 +138,7 @@ drop1(model0,~.,test="F")
 # ---
 # Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
-The main effect of condition is still significant, though less so (p < 0.05). Let's compare these results with the results obtained by another method.
+The main effect of `condition` is still significant, though less so (p < 0.05). Let's compare these results with the results obtained by another method.
 
 Method 2: function anova_test() in "rstatix" package
 ``` r
@@ -149,9 +149,9 @@ model1
 # 2           training   1  39 19.848 6.87e-05     * 0.337
 # 3 condition:training   2  39  7.089 2.00e-03     * 0.267
 ```
-The main effect of condition is significant according to the anova_test() method. Moreover, according to Cohen's standard thresholds (Cohen, 1988), the effect is medium for condition (generalized eta squared = 0.21) and large for training (generalized eta squared = 0.38). Since all tests returned significant two-way interaction let's investigate the simple main effect of condition.
+The main effect of `condition` is significant according to the anova_test() method. Moreover, according to Cohen's standard thresholds (Cohen, 1988), the effect is medium for `condition` (generalized eta squared = 0.21) and large for `training` (generalized eta squared = 0.38). Since all tests returned significant two-way interaction let's investigate the simple main effect of `condition`.
 
-Run one-way model of condition at each level of training:
+Run one-way model of `condition` at each level of `training`:
 ``` r
 model <- lm(final ~ condition * training, data = data)
 data %>%
@@ -162,9 +162,9 @@ data %>%
 # 1 0        condition     2    39  0.292 0.748   ""      0.015
 # 2 1        condition     2    39 10.4   0.00024 "*"     0.348
 ```
-The simple main effect of condition is significant for training group 1 (p < 0.001). Let's now perform multiple pairwise comparisons between the conditions groups by training.
+The simple main effect of `condition` is significant for `training` group 1 (p < 0.001). Let's now perform multiple pairwise comparisons between the `condition` groups by `training`.
 
-Compare the score of the different condition levels by training levels:
+Compare the score of the different `condition` levels by `training` levels:
 ``` r
 pwc <- data %>% 
   group_by(training) %>%
@@ -179,7 +179,7 @@ pwc
 # 5 1        condition final c      u         39  5.68e- 1 0.573    1        ns          
 # 6 1        condition final p      u         39 -3.93e+ 0 0.000333 0.000998 *** 
 ```
-There're significant differences of response scores between the control and primed conditions grouped by training level 1 (adjusted p < 0.01), as well as between the primed and unprimed conditions grouped by training level 1 (adjusted p < 0.001).
+There're significant differences of response scores between the control and primed `conditions` grouped by `training` level 1 (adjusted p < 0.01), as well as between the primed and unprimed `conditions` grouped by `training` level 1 (adjusted p < 0.001).
 
 For an even finer-grained comarison, run the following:
 ``` r
