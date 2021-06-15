@@ -32,6 +32,10 @@ Run the following code in R to install the required packages:
 install.packages("dplyr")
 install.packages("effectsize")
 install.packages("rstatix")
+install.packages("insight")
+install.packages("rstanarm")
+install.packages("easystats")
+install.packages("performance")
 ```
 
 Load the required packages:
@@ -39,6 +43,10 @@ Load the required packages:
 library(dplyr)
 library(effectsize)
 library(rstatix)
+library(insight)
+library(rstanarm)
+library(easystats)
+library(performance)
 ```
 
 ### Import data
