@@ -225,7 +225,7 @@ posthoc
 
 ``` r
 data$condition <- as.numeric(as.factor(data$condition))
-data$condition[data$condition == 2] = 0 # code: "primed" = 0, "unprimed" = 1, "control" = 2
+data$condition[data$condition == 2] = 0
 data$condition[data$condition == 1] = 2
 data$condition[data$condition == 3] = 1
 ```
