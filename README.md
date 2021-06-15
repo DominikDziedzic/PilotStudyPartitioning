@@ -274,7 +274,7 @@ beta_coef
 #  (Intercept)    condition     training 
 #  5.611263e-19 2.090019e-01 5.170052e-01
 ```
-The linear relationship between `final` responses (DV) and `training` (IV) is positive and significant (insignificant relationship between `final` responses and `condition`). `Final` reference judgments were significantly correlated  with `training` (b = 0.501, t(42) = 3.939, p < 0.001, eta^2 = 0.27, beta = 5.170). `Condition`: b = 0.119, t(42) = 1.592, p > 0.1, eta^2 = 0.03, beta = 2.090. Together, the two variables explain R^2 = 0.29% of the variability in `final` reference judgments, which is a large effect (Cohen, 1988).
+The linear relationship between `final` responses (DV) and `training` (IV) is positive and significant (insignificant relationship between `final` responses and `condition`). `Final` reference judgments were significantly correlated  with `training` (_b_ = 0.501, _t_(42) = 3.939, _p_ < 0.001, eta^2 = 0.27, beta = 5.170). `Condition`: _b_ = 0.119, _t_(42) = 1.592, _p_ > 0.1, eta^2 = 0.03, beta = 2.090. Together, the two variables explain R^2 = 0.29% of the variability in `final` reference judgments, which is a large effect (Cohen, 1988).
 
 ## Bayesian Linear Regression
 
@@ -297,7 +297,7 @@ Extracting the posteriors:
 posteriors <- insight::get_parameters(model)
 ```
 
-Point-estimate (i.e., median in this case; similar to b in frequentist regression):
+Point-estimate (i.e., median in this case; similar to _b_ in frequentist regression):
 ``` r
 median(posteriors$condition)
 # [1] 0.1167944
@@ -317,7 +317,7 @@ hdi(posteriors$training, ci = 0.89)
 `condition`: the effect has 89% chance of falling within the [0.00, 0.24] range.
 `training`: the effect has 89% chance of falling within the [0.30, 0.71] range.
 
-Effect significance in terms of ROPE (Region of Practical Equivalence, see Makowski, Ben-Shachar, Lüdecke, 2019):
+Effect significance in terms of ROPE (Region of Practical Equivalence, see Makowski, Ben-Shachar, Lüdecke, 2019a):
 ``` r
 ropeVal <- 0.1 * sd(data$final)
 ropeRange <- c(-ropeVal, ropeVal)
