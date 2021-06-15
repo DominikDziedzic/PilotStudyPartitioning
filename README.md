@@ -183,7 +183,7 @@ pwc
 ```
 There're significant differences of response scores between the control and primed `conditions` grouped by `training` level 1 (adjusted p < 0.01), as well as between the primed and unprimed `conditions` grouped by `training` level 1 (adjusted p < 0.001).
 
-For an even finer-grained comarison, run the following:
+For an even finer-grained comparison, run the following:
 ``` r
 posthoc <- lsmeans(model0, # applies to model0
                    pairwise ~ condition * training, 
